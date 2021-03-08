@@ -6,6 +6,11 @@ jobs:
   file_existence:
     runs-on: ubuntu-latest
     steps: 
+      - uses: actions/checkout@v1
+      - name: Checkout code
+        working-directory: ./UnixScripts
+        run: echo "found folder"
+
       - name: Check file existence
         id: check_files
         working-directory: ./UnixScripts
