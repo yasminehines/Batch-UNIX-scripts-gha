@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: yasminehines/Batch-UNIX-scripts-gha
 
       - name: Check file existence
         id: check_files
