@@ -6,18 +6,12 @@ jobs:
   file_existence:
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v1
-      - name: Checkout code
-        working-directory: ./UnixScripts
-        run: |
-          ls
-
       - name: Check file existence
         id: check_files
         working-directory: ./UnixScripts
         run: (test -f hello.ksh && echo hello.ksh exists) || echo hello.ksh does not exist, skipping step
 
-      # - name: File exists
-      #   if: steps.check_files.outputs.files_exists == 'true'
-      #   # Only runs if all of the files exists
-      #   run: echo All files exists!
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'true'
+        # Only runs if all of the files exists
+        run: echo All files exists!
