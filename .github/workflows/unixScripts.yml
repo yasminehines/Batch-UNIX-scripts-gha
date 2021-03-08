@@ -1,0 +1,23 @@
+name: Unix Scripts Workflow
+
+
+on: 
+  # schedule:
+  #  - cron: "0/5 * * * *" # * means any value
+  #  - cron: "0/6 * * * *" #  (minute hour day(month) month day(week))
+  push:
+  pull_request:
+    types: [closed, assigned, opened, reopened]
+
+jobs: 
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Files and Directories
+        run: echo "files and directories deleted"
+      - name: Extract the Unix Files (Download Artifacts)
+        run: |
+          ls
+      - name: Deploy Unix Scripts
+        run:  |
+          pwd
