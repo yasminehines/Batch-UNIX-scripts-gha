@@ -14,9 +14,7 @@ jobs:
 
       - name: Check file existence
         id: check_files
-        uses: andstor/file-existence-action@v1
-        with:
-          files: "hello.ksh"
+        run: (test -f hello.ksh && echo hello.ksh exists) || echo hello.ksh does not exist, skipping step
 
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
