@@ -13,11 +13,26 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps:
-      - name: Delete Files and Directories
+      - name: Delete Files and Directories Part 1
+        # if: folder is empty 
+        # run: echo "No Unix Scripts to delete"
+        run: echo "No Unix Scripts to delete"
+      - name: Delete Files and Directories Part 2
+        # if: ! empty 
+        # uses: c-hive/gha-remove-artifacts@v1
+        # with: 
+        #    age: '2 weeks'
+        # run: |
+        #   echo "files and directories deleted"
         run: echo "files and directories deleted"
+
       - name: Extract the Unix Files (Download Artifacts)
         run: |
-          ls
+          echo "All new artifacts downloaded."
+
+
       - name: Deploy Unix Scripts
         run:  |
-          pwd
+          echo "Deploying the new Unix Scripts."
+          
+          echo "New Unix Scripts have been deployed."
