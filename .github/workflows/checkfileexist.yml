@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         working-directory: ./UnixScripts
         run: |
-          cd UnixScripts
+          ls
 
       - name: Check file existence
         id: check_files
