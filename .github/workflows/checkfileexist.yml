@@ -16,7 +16,10 @@ jobs:
         working-directory: ./UnixScripts
         run: (test -f hello.ksh && echo hello.ksh exists) || echo hello.ksh does not exist, skipping step
 
-      - name: File exists
-        if: steps.check_files.outputs.files_exists == 'true'
-        # Only runs if all of the files exists
-        run: echo All files exists!
+      # - name: File exists
+      #   if: steps.check_files.outputs.files_exists == 'true'
+      #   # Only runs if all of the files exists
+      #   run: echo All files exists!
+
+      - name: Directory empty
+        run: ( "$(ls -A /UnixScripts)" ) && echo "Not Empty" || echo "Empty"
