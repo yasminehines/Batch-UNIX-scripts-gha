@@ -34,7 +34,7 @@ jobs:
         run: |
           ls
 
-      # - name: Extracts Artifacts
-      #   if: steps.UnixScripts.outputs.num == 0
-      #   run: |
-      #     ls
+      - name: Extracts Artifacts
+        if: steps.UnixScripts.outputs.num == 0
+        run: |
+          ls
