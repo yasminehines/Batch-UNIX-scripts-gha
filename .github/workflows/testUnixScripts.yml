@@ -5,6 +5,7 @@ on:
   # schedule:
   #  - cron: "0/5 * * * *" # * means any value
   #  - cron: "0/6 * * * *" #  (minute hour day(month) month day(week))
+  
   push:
   pull_request:
     types: [closed, assigned, opened, reopened]
@@ -25,25 +26,26 @@ jobs:
               echo '::set-output name=num::0'
           else
               echo "Not Empty"
-              echo '::set-output name=num::0'
+              echo '::set-output name=num::1'
           fi
 
       - name: Delete Files & Directories
         if: steps.UnixScripts.outputs.num == 1
         working-directory: ./UnixScripts
         run: |
-          ls
+          rm ./UnixScripts/*
 
       - name: Extracts Artifacts
         if: steps.UnixScripts.outputs.num == 0
+        run: |
+          echo "Extracting artifacts from dev" 
         uses: actions/upload-artifact@v2
         with:
+        # path of artifacts from dev
           path: ./artifacts/
-        # run: |
-        #   echo "Extract Artifacts"
 
       # - name: Deploy Unix Scripts
       #   run:  |
       #     echo "Deploying the new Unix Scripts."
-      #   deploy the new Unix scripts   
+      #   Will be placed in a directory    
       #     echo "New Unix Scripts have been deployed."
