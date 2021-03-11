@@ -1,4 +1,4 @@
-name: Unix Scripts Workflow
+name: Test Unix Scripts Workflow
 
 
 on: 
@@ -15,11 +15,10 @@ jobs:
     steps:
       - name: Checkout Main repository
         uses: actions/checkout@v1
-        with:
-          path: ./UnixScripts
       
       - name: Check Unix Scripts Directory
         id: UnixScripts
+        working-directory: ./UnixScripts
         run: |
           if [ -z "$(ls)" ]; then
               echo "Empty"
@@ -38,3 +37,9 @@ jobs:
         if: steps.UnixScripts.outputs.num == 0
         run: |
           ls
+
+      # - name: Deploy Unix Scripts
+      #   run:  |
+      #     echo "Deploying the new Unix Scripts."
+      #   deploy the new Unix scripts   
+      #     echo "New Unix Scripts have been deployed."
