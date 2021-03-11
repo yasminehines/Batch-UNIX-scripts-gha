@@ -33,7 +33,7 @@ jobs:
         if: steps.UnixScripts.outputs.num == 1
         working-directory: ./UnixScripts
         run: |
-          ls
+          ls -la
 
         # extract artifacts from dev
       - name: Extracts Artifacts
