@@ -13,25 +13,31 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Delete Files and Directories Part 1
+      - name: Checkout Main repository
+        uses: actions/checkout@v1
+      
+      - name: Check Unix Scripts Directory
+        id: UnixScripts
         working-directory: ./UnixScripts
-        #if: ( ls ) && echo "Not Empty" || echo "No Unix Scripts to delete" 
-        run: echo "No Unix Scripts to delete"
-        # run: echo "No Unix Scripts to delete"
-      - name: Delete Files and Directories Part 2
-        # if: ! empty 
-        # uses: c-hive/gha-remove-artifacts@v1
-        # with: 
-        #    age: '2 weeks'
-        # run: |
-        #   echo "files and directories deleted"
-        # run: echo "files and directories deleted"
+        run: |
+          if [ -z "$(ls)" ]; then
+              echo "Empty"
+              echo '::set-output name=num::0'
+          else
+              echo "Not Empty"
+              echo '::set-output name=num::1'
+          fi
 
-      - name: Extract the Unix Files (Download Artifacts)
-      - uses: actions/upload-artifact@v2
-        with:
-          path: /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/artifacts/
+      - name: Delete Files & Directories
+        if: steps.UnixScripts.outputs.num == 1
+        run: |
+          ls
+
+      - name: Extracts Artifacts
+        if: steps.UnixScripts.outputs.num == 0
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     path: /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/artifacts/
         run: |
           echo "All new artifacts downloaded."
 

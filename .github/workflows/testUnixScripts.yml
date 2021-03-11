@@ -30,13 +30,14 @@ jobs:
 
       - name: Delete Files & Directories
         if: steps.UnixScripts.outputs.num == 1
+        working-directory: ./UnixScripts
         run: |
           ls
 
       - name: Extracts Artifacts
         if: steps.UnixScripts.outputs.num == 0
         run: |
-          ls
+          echo "Extract Artifacts"
 
       # - name: Deploy Unix Scripts
       #   run:  |
