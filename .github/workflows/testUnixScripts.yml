@@ -33,7 +33,7 @@ jobs:
         if: steps.UnixScripts.outputs.num == 1
         working-directory: ./UnixScripts
         run: |
-          rm ./UnixScripts/*
+          rm ./*
 
       - name: Extracts Artifacts
         if: steps.UnixScripts.outputs.num == 0
