@@ -1,0 +1,34 @@
+name: Unix Scripts Workflow
+
+
+on: 
+  # schedule:
+  #  - cron: "0/5 * * * *" # * means any value
+  #  - cron: "0/6 * * * *" #  (minute hour day(month) month day(week))
+  push:
+  pull_request:
+    types: [closed, assigned, opened, reopened]
+
+jobs: 
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Main repository
+      - uses: actions/checkout@v1
+      
+      - name: Check Unix Scripts Directory
+        id: UnixScripts
+        run: |
+          cd ./UnixScripts &&
+          output=$(( ls ) && echo 1 || echo 0)
+          echo :: set-output name=output::value
+
+      # - name: Delete Files & Directories
+      #   if: steps.UnixScripts.outputs.output == 1
+      #   run: |
+      #     ls
+
+      # - name: Extracts Artifacts
+      #   if: steps.UnixScripts.outputs.output == 0
+      #   run: |
+      #     ls
