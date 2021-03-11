@@ -39,8 +39,8 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: ./artifacts/
-        run: |
-          echo "Extract Artifacts"
+        # run: |
+        #   echo "Extract Artifacts"
 
       # - name: Deploy Unix Scripts
       #   run:  |
