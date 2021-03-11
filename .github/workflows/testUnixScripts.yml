@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout Main repository
       - uses: actions/checkout@v1
+        with:
+          path: ./UnixScripts
       
       - name: Check Unix Scripts Directory
         id: UnixScripts
