@@ -22,6 +22,6 @@ jobs:
       #   run: echo All files exists!
 
       - name: Directory empty
-        run: ( ls ) && echo "Not Empty" || echo "Empty"
-        working-directory: /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/UnixScripts 
-        # run: ( ls -A ./UnixScripts ) && echo "Not Empty" || echo "Empty"
+        #run: ( ls ) && echo "Not Empty" || echo "Empty"
+        working-directory: /UnixScripts 
+        run: ( ls -A ) && echo "Not Empty" || echo "Empty"
