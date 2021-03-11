@@ -35,6 +35,7 @@ jobs:
         run: |
           rm ./*
 
+        # extract artifacts 
       - name: Extracts Artifacts
         if: steps.UnixScripts.outputs.num == 0
         # run: |
