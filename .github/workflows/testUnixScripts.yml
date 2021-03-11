@@ -21,7 +21,7 @@ jobs:
       - name: Check Unix Scripts Directory
         id: UnixScripts
         run: |
-          if [ -z "$(ls -A /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/UnixScripts)" ]; then
+          if [ -z "$(ls /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/UnixScripts)" ]; then
               echo "Empty"
               steps.UnixScripts.outputs.output == 0
           else
