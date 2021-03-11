@@ -23,5 +23,5 @@ jobs:
 
       - name: Directory empty
         #run: ( ls ) && echo "Not Empty" || echo "Empty"
-        working-directory: /UnixScripts 
-        run: ( ls -A ) && echo "Not Empty" || echo "Empty"
+        #working-directory: ./UnixScripts 
+        run: ( ls ) && echo "Not Empty" || echo "Empty"
