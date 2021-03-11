@@ -23,18 +23,18 @@ jobs:
         run: |
           if [ -z "$(ls)" ]; then
               echo "Empty"
-              steps.UnixScripts.outputs.output == 0
+              echo '::set-output name=num::0'
           else
               echo "Not Empty"
-              steps.UnixScripts.outputs.output == 1
+              echo '::set-output name=num::1'
           fi
 
       - name: Delete Files & Directories
-        if: steps.UnixScripts.outputs.output == 1
+        if: steps.UnixScripts.outputs.num == 1
         run: |
           ls
 
       # - name: Extracts Artifacts
-      #   if: steps.UnixScripts.outputs.output == 0
+      #   if: steps.UnixScripts.outputs.num == 0
       #   run: |
       #     ls
