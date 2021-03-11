@@ -9,12 +9,12 @@ jobs:
       - uses: actions/checkout@v1
       - name: Checkout code
         working-directory: ./UnixScripts
-        run: echo "found folder"
-
+        # run: echo "found folder"
+        run: pwd
       - name: Check file existence
         id: check_files
         working-directory: ./UnixScripts
-        run: (test -f hello.ksh && echo hello.ksh exists) || echo hello.ksh does not exist, skipping step
+        run: (test -f hello.ksh && true ) || false, skipping step
 
       # - name: File exists
       #   if: steps.check_files.outputs.files_exists == 'true'

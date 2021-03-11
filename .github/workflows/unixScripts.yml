@@ -13,10 +13,13 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Delete Files and Directories Part 1
+        working-directory: ./UnixScripts
+        run: echo "found folder"
         # if: folder is empty 
         # run: echo "No Unix Scripts to delete"
-        run: echo "No Unix Scripts to delete"
+        # run: echo "No Unix Scripts to delete"
       - name: Delete Files and Directories Part 2
         # if: ! empty 
         # uses: c-hive/gha-remove-artifacts@v1
@@ -24,9 +27,12 @@ jobs:
         #    age: '2 weeks'
         # run: |
         #   echo "files and directories deleted"
-        run: echo "files and directories deleted"
+        # run: echo "files and directories deleted"
 
       - name: Extract the Unix Files (Download Artifacts)
+      #- uses: actions/upload-artifact@v2
+        #with:
+       #   path: path/to/artifact/world.txt
         run: |
           echo "All new artifacts downloaded."
 
