@@ -33,7 +33,7 @@ jobs:
         if: steps.UnixScripts.outputs.num == 1
         working-directory: ./UnixScripts
         run: |
-          rm  -R /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/UnixScripts/*
+          rm -rf /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/UnixScripts/*.*
 
         # extract artifacts from dev
       - name: Extracts Artifacts
