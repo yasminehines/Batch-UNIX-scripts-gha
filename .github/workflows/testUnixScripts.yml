@@ -29,26 +29,31 @@ jobs:
               echo '::set-output name=num::1'
           fi
 
-      - name: Delete Files & Directories
+      - name: Overwrite Files & Directories
         if: steps.UnixScripts.outputs.num == 1
         working-directory: ./UnixScripts
         run: |
-          rm hello.ksh
           ls -la
+          echo '::set-output name=num::0'
 
 
         # extract artifacts from dev
       - name: Extracts Artifacts
         if: steps.UnixScripts.outputs.num == 0
-        # run: |
-        #   echo "Extracting artifacts from dev" 
-        uses: actions/upload-artifact@v2
-        with:
+        run: |
+          echo "Extracting artifacts from dev" 
+        # uses: actions/upload-artifact@v2
+        # with:
         # path of artifacts from dev
-          path: ./artifacts/
+          # path: ./artifacts/
 
       # - name: Deploy Unix Scripts
-      #   run:  |
-      #     echo "Deploying the new Unix Scripts."
-      #   Will be placed in a directory    
-      #     echo "New Unix Scripts have been deployed."
+        # run:  |
+        #     echo "Deploying the new Unix Scripts."
+        #     find ./ -type f  |
+        #     xargs -i{} chmod 775 {} [[ ! -d ${p:environment/UNIX_ROOT}/ ]] && mkdir --parents --mode=0775 ${p:environment/UNIX_ROOT}/
+        #     find ./ -type f |
+        #     xargs -i{} realpath --relative-to=./ {} |
+        #     xargs -i{} cp --parents -f {} -t ${p:environment/UNIX_ROOT}/
+        #     Will be placed in a directory    
+        #     echo "New Unix Scripts have been deployed."
