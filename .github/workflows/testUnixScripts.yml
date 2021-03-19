@@ -32,9 +32,7 @@ jobs:
       - name: Overwrite Files & Directories
         if: steps.UnixScripts.outputs.num == 1
         working-directory: ./UnixScripts
-        run: |
-          ls -la
-          echo '::set-output name=num::0'
+        run: echo '::set-output name=num::0'
 
 
         # extract artifacts from dev
