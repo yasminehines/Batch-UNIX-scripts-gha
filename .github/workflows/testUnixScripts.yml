@@ -39,8 +39,8 @@ jobs:
         # extract artifacts from dev
       - name: Extracts Artifacts
         if: steps.CheckUnixScripts.outputs.num == 0 || steps.OverwriteFiles.outputs.num == 0
-        run: |
-          echo "Extracting artifacts from dev" 
+        # run: |
+        #   echo "Extracting artifacts from dev" 
         uses: actions/upload-artifact@v2
         with:
         # path of artifacts from dev
