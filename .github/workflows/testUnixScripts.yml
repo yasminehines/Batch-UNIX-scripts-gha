@@ -2,7 +2,8 @@ name: Test Unix Scripts Workflow
 
 
 on: 
-  # schedule:
+  schedule:
+    - cron: "* 11 * * *" # deploy at 11
   #  - cron: "0/5 * * * *" # * means any value
   #  - cron: "0/6 * * * *" #  (minute hour day(month) month day(week))
   
