@@ -34,7 +34,9 @@ jobs:
         id: OverwriteFiles
         if: steps.CheckUnixScripts.outputs.num == 1
         working-directory: ./UnixScripts
-        run: echo '::set-output name=num::0'
+        run: |
+          echo "Files and Directories overwritten"
+          echo '::set-output name=num::0'
 
 
         # extract artifacts from dev
