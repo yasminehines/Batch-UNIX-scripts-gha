@@ -6,23 +6,40 @@ on:
   pull_request:
     types: [closed, assigned, opened, reopened]
   
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+jobs: 
+  deploy: 
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Checkout Main repository
+        uses: actions/checkout@v1
+      
+      - name: Check Unix Scripts Directory
+        id: CheckUnixScripts
+        working-directory: ./UnixScripts
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          if [ -z "$(ls)" ]; then
+              echo "Empty"
+              echo '::set-output name=num::0'
+          else
+              echo "Not Empty"
+              echo '::set-output name=num::1'
+          fi
+
+      - name: Overwrite Files & Directories
+        id: OverwriteFiles
+        if: steps.CheckUnixScripts.outputs.num == 1
+        working-directory: ./UnixScripts
+        run: |
+          echo "Files and Directories overwritten"
+          echo '::set-output name=num::0'
+
+      - name: Download Artifacts
+        if: steps.CheckUnixScripts.outputs.num == 0 || steps.OverwriteFiles.outputs.num == 0
+        uses: actions/download-artifact@v2
+        with:
+          name: my-artifact
+          path: ./artifacts/
+          
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: ./artifacts2.0/    
