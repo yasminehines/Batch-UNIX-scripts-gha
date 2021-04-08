@@ -1,8 +1,8 @@
 name: Do things every 5 minutes
 
 on: 
-  schedule:
-    - cron: "*/10 * * * *" # deploy every 10 mintues
+  # schedule:
+  #   - cron: "*/10 * * * *" # deploy every 10 mintues
   pull_request:
     types: [closed, assigned, opened, reopened]
   
