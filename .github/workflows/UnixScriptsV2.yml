@@ -41,6 +41,7 @@ jobs:
         #   echo "Extracting artifacts from dev" 
         uses: actions/upload-artifact@v2
         with:
+          name: my-artifact
         # path of artifacts from dev
           path: ./artifacts/
           if-no-files-found: warn
