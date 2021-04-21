@@ -2,7 +2,7 @@ name: Master
 on:
   push:
     branches:
-      - Dev
+      - master
   schedule:
     - cron: '1 * * * *'
 jobs:
