@@ -19,7 +19,7 @@ jobs:
         
     - name: Overwrite Files & Directories
       run: |
-        makdir -p BackupUnixScripts
+        mkdir -p BackupUnixScripts
         git add --all BackupUnixScripts/
         git commit -m "<Message>"
         git push
