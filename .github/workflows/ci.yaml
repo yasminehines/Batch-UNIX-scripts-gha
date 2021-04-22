@@ -19,11 +19,11 @@ jobs:
         
     - name: Overwrite Files & Directories
       run: |
-        cd ./OldScripts
+        cd ./artifacts2.0
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
 
-        git -C /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/artifacts2.0 add .
+        git -C /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/OldScripts add .
         git commit -m "Test"
         git push
   
