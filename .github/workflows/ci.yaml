@@ -16,7 +16,7 @@ jobs:
 
     - name: test
       run: |
-        chmod +x "${GITHUB_WORKSPACE}/.github/script.sh"
+        chmod +x "${GITHUB_WORKSPACE}/.github/test.sh"
       
         
     - name: Overwrite Files & Directories
