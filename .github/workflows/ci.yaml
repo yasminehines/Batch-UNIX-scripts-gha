@@ -23,7 +23,7 @@ jobs:
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
 
-        git -C ./artifacts2.0 add .
+        git -C /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/artifacts2.0 add .
         git commit -m "Test"
         git push
   
