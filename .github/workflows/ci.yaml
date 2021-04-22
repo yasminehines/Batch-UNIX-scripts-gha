@@ -1,0 +1,41 @@
+name: Test
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: npm install
+      run: npm install
+
+    - name: Compile
+      run: npm run build
+
+    - name: npm test
+      run: npm test
+
+    - name: Lint
+      run: npm run lint
+
+    - name: Format
+      run: npm run format-check
+        
+    - name: Overwrite Files & Directories
+      run: |
+        cd ./artifacts2.0
+        mkdir -p Backup
+        mv *.txt /home/runner/work/Batch-Unix-scripts-gha/Batch-Unix-scripts-gha/artifacts2.0/Backup
+
+    - name: Overwrite Files & Directories 2
+      run: |
+        cd ./artifacts2.0/Backup
+        ls -R
