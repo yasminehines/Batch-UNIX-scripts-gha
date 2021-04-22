@@ -18,11 +18,8 @@ jobs:
       run: npm install
         
     - name: Overwrite Files & Directories
-      run: |
-        cd ./artifacts2.0
-        mkdir -p Backup
-        git init
-        git mv *.txt /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/artifacts2.0/Backup
+      run: ./script.sh
+      shell: bash
 
     - name: Overwrite Files & Directories 2
       run: |
