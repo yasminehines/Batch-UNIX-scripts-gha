@@ -20,8 +20,9 @@ jobs:
     - name: Overwrite Files & Directories
       run: |
         cd ./artifacts2.0
-        mkdir -p Backup
-        mv *.txt /home/runner/work/Batch-Unix-scripts-gha/Batch-Unix-scripts-gha/artifacts2.0/Backup
+        pwd 
+     # mkdir -p Backup
+        # mv *.txt /home/runner/work/Batch-Unix-scripts-gha/Batch-Unix-scripts-gha/artifacts2.0/Backup
 
     - name: Overwrite Files & Directories 2
       run: |
