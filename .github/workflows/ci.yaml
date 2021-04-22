@@ -20,7 +20,6 @@ jobs:
     - name: Overwrite Files & Directories
       run: |
         mkdir -p BackupUnixScripts
-        cd ./BackupUnixScripts
         echo "test" > help.txt
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
