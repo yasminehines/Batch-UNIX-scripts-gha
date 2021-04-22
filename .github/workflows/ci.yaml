@@ -14,11 +14,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: npm install
-      run: npm install
+    - name: test
+      run: |
+        chmod +x "${GITHUB_WORKSPACE}/.github/script.sh"
+      
         
     - name: Overwrite Files & Directories
-      run: ./test.sh
+      run: /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/.github/test.sh
       shell: bash
 
     - name: Overwrite Files & Directories 2
