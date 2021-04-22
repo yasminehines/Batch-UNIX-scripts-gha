@@ -19,12 +19,10 @@ jobs:
         
     - name: Overwrite Files & Directories
       run: |
-        mkdir -p ./BackupUnixScripts
-        gitkeep ./BackupUnixScripts
-        cd ./artifacts2.0 
-        git mv *.txt /home/runner/work/Test-Batch-CI-CD/Test-Batch-CI-CD/BackupUnixScripts
+        ls 
+      
 
-    - name: Overwrite Files & Directories 2
-      run: |
-        cd ./BackupUnixScripts
-        ls -R
+    # - name: Overwrite Files & Directories 2
+    #   run: |
+    #     cd ./BackupUnixScripts
+    #     ls -R
