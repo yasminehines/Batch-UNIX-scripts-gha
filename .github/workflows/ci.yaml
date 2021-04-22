@@ -19,8 +19,10 @@ jobs:
         
     - name: Overwrite Files & Directories
       run: |
-        ls 
-      
+        git add -A BackupUnixScripts
+        git commit -m "Add Folder"
+        git push
+
 
     # - name: Overwrite Files & Directories 2
     #   run: |
