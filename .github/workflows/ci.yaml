@@ -21,6 +21,7 @@ jobs:
       run: |
         mkdir -p BackupUnixScripts
         cd ./BackupUnixScripts
+        echo "test" > test.txt
         git add .
 
 
