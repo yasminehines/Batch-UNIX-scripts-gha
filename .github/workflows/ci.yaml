@@ -28,5 +28,5 @@ jobs:
 
     - name: Overwrite Files & Directories 2
       run: |
-        cd ./artifacts2.0/Backup
+        cd ./.gitkeep/Backup
         ls -R
