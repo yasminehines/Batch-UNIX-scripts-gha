@@ -18,14 +18,12 @@ jobs:
       run: |
         for file in ./OldScripts/*; do mv $file $file-`date +%m%d%y`; done
         cd ./OldScripts/
-        ls -R
-
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
 
         mv *.ksh-`date +%m%d%y` /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/Backup
         cd ..
-        git add ./Backup/
+        git add ./Backup/art.ksh-042621
         git commit -m "add files to Backup"
         git push
   
