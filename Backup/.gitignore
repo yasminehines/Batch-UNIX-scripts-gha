@@ -6,7 +6,3 @@
 
 # ... except for this one.
 !.gitignore
-
-
-# ... and all text files.
-!*.ksh
