@@ -20,11 +20,10 @@ jobs:
         cd ./OldScripts/
         ls -R
 
-        mv *.ksh-`date +%m%d%y` /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/Backup
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
 
-      
+        mv *.ksh-`date +%m%d%y` /home/runner/work/Batch-UNIX-scripts-gha/Batch-UNIX-scripts-gha/Backup
         cd ..
         git add ./Backup/
         git commit -m "add files to Backup"
