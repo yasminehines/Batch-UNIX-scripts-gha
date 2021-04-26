@@ -19,7 +19,7 @@ jobs:
         cd ./OldScripts
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
-        for file in ./*; do mv $file $file-`date +%m%d%y`; done
+        for file in /OldScripts/*; do mv $file $file-`date +%m%d%y`; done
         git mv *.ksh /home/runner/work/Batch-UNIX-scripts-gha\Batch-UNIX-scripts-gha/Backup
         cd ..
         git add ./Backup/
