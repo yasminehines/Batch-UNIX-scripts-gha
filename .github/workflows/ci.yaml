@@ -17,7 +17,8 @@ jobs:
     - name: Overwrite Files & Directories
       run: |
         for file in ./OldScripts/*; do mv $file $file-`date +%m%d%y`; done
-
+        cd ./OldScripts/
+        ls -R
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
 
