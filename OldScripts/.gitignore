@@ -8,5 +8,4 @@
 !.gitignore
 
 # ... except for these files.
-!*.ksh
 
