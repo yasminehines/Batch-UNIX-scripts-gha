@@ -31,7 +31,5 @@ jobs:
     - name: Overwrite Files & Directories 2
       run: |
         cd ./OldScripts/
-        rm *.ksh
-        git add -f ./OldScripts/
-        git commit -m "remove old files"
-        git push
+        ls -R
+       
