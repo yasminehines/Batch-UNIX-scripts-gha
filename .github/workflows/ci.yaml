@@ -18,7 +18,6 @@ jobs:
       run: |
         for file in ./OldScripts/*; do mv $file $file-`date +%m%d%y`; done
         cd ./OldScripts/
-        rm *.ksh
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
 
@@ -29,7 +28,10 @@ jobs:
         git push
   
 
-    # - name: Overwrite Files & Directories 2
-    #   run: |
-    #     cd ./Backup
-    #     ls -R
+    - name: Overwrite Files & Directories 2
+      run: |
+        cd ./OldScripts/
+        rm *.ksh
+        git add -f ./OldScripts/
+        git commit -m "remove old files"
+        git push
