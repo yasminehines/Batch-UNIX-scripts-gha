@@ -18,6 +18,7 @@ jobs:
       run: |
         for file in ./OldScripts/*; do mv $file $file-`date +%m%d%y`; done
         cd ./OldScripts/
+        rm *.ksh
         git config --global user.email "yasmine.hines@aa.com"
         git config --global user.name "yasminehines"
 

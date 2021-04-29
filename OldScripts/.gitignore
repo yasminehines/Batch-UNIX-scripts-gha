@@ -2,9 +2,11 @@
 ###################################
 
 # Filter everything...
-*
+
 
 # ... except for this one.
 !.gitignore
 
+# ... except for these files.
+!*.ksh
 
