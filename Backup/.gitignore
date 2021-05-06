@@ -1,8 +1,0 @@
-# .gitignore to keep just .ksh files
-###################################
-
-# Filter everything...
-*
-
-# ... except for this one.
-!.gitignore
